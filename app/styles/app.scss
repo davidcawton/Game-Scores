@@ -1,0 +1,17 @@
+$brand-black: #141213;
+$brand-white: #e4e4e4;
+$brand-grey: #818586;
+$brand-primary: #14da99;
+$brand-secondary: #d9d33f;
+$brand-pop: #001aff;
+
+@import 'base';
+@import 'navbar';
+@import 'sidebar';
+@import 'footer';
+
+
+.detail {
+  padding: 1rem;
+
+}
