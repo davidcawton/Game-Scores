@@ -6,5 +6,11 @@ export default Ember.Route.extend({
     .then((response) => response.json())
     .then((response) => response.data);
 
-  }
+  },
+
+    action: {
+      saveNewGame(ev) {
+        ev.preventDefault();
+      }
+    }
 });
