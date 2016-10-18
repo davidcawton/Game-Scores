@@ -7,9 +7,26 @@ export default Ember.Route.extend({
     .then((response) => response.data);
 
   },
+    actions: {
+      saveNewGame(name,  ev) {
+        const body = {
+          data: {
+            type: 'games',
+            attributes: {
+              name
+            }
+          }
+        };
 
-    action: {
-      saveNewGame(ev) {
+        fetch('http://game-scores.herokuapp.com/games',  {
+          method: 'POST',
+          headers: {
+            Accept: 'application.json',
+            'Content-Type' : 'application.json',
+          },
+          body: JSON.stringify(body),
+        });
+
         ev.preventDefault();
       }
     }
