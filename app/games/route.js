@@ -2,36 +2,21 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return fetch('http://game-scores.herokuapp.com/games')
-    .then((response) => response.json())
-    .then((response) => response.data);
-
+    return this.store.findAll('game');
   },
-    actions: {
-      saveNewGame(name,  ev) {
-        const body = {
-          data: {
-            type: 'games',
-            attributes: {
-              name
-            }
-          }
-        };
 
-        fetch('http://game-scores.herokuapp.com/games',  {
-          method: 'POST',
-          headers: {
-            Accept: 'application.json',
-            'Content-Type' : 'application.json',
-          },
-          body: JSON.stringify(body),
-        })
-          .then((response) => response.json())
-          .then((response) => {
-            this.controller.addNewGame(response.data);
-          });
+  actions: {
+    saveNewGame(name, ev) {
+      const game = this.store.createRecord('game', {
+        name
+      });
 
-        ev.preventDefault();
-      }
+      game.save()
+        .then(() => {
+          this.controller.resetForm(game);
+        });
+
+      ev.preventDefault();
     }
+  }
 });
