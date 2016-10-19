@@ -6,7 +6,10 @@
         {{#link-to 'games.scores' game.id class='games-list__link'}}
         {{game.name}}
         {{/link-to}}
+
+        <button class="game-list__remove" onclick={{route-action 'deleteGame' game}}><span class="fa fa-remove"></span></button>
       </h2>
+
 
     </li>
     {{/each}}

@@ -11,6 +11,12 @@ export default Ember.Route.extend({
       .then(() => {
         resetForm();
       });
+    },
+
+    deleteScore(score) {
+      if (window.confirm('Do you really want to delete this score?')) {
+        score.destroyRecord();
+      }
     }
   }
 

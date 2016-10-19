@@ -5,6 +5,8 @@
       <li class="game-scores__item">
         <span class="game-scores__username">{{score.username}}</span>
         <span class="game-scores__socre">{{score.score}}</span>
+        <button class="game-scores__remove" onclick={{route-action 'deleteScore' score}}><span class="fa fa-remove"></span></button>
+
       </li>
     {{/each}}
   </ol>

@@ -14,6 +14,12 @@ export default Ember.Route.extend({
           toggleForm();
         });
 
+    },
+
+    deleteGame(game) {
+      if (window.confirm('Do you really want to delete this game?')) {
+        game.destroyRecord();
+      }
     }
   }
 });
