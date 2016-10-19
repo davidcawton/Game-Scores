@@ -2,6 +2,8 @@ import Ember from 'ember';
 const { hash, all } = Ember.RSVP;
 
 export default Ember.Route.extend({
+  confirm: Ember.inject.service(),
+
   actions: {
     saveNewScore(game, resetForm, formValues) {
       const score = this.store.createRecord('game-score', formValues);
@@ -14,9 +16,9 @@ export default Ember.Route.extend({
     },
 
     deleteScore(score) {
-      if (window.confirm('Do you really want to delete this score?')) {
-        score.destroyRecord();
-      }
+      this.get('confirm').create('Do you really want to delete this score?')
+      .then(() => score.destroyRecord)
+      .catch(() => {});
     }
   }
 

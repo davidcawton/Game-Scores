@@ -1,7 +1,7 @@
 $brand-black: #131212;
 $brand-white: #eee;
 $brand-grey: #5e5959;
-$brand-primary: #dac014;
+$brand-primary: #27bdc2;
 $brand-secondary: #0e8487;
 $brand-pop: #c2304b;
 
@@ -10,5 +10,6 @@ $brand-pop: #c2304b;
 @import 'sidebar';
 @import 'footer';
 @import 'footer-form';
-@import 'scores';
 @import 'details';
+@import 'scores';
+@import 'dialog';
